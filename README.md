@@ -1,0 +1,2 @@
+# YukiConfig
+my linux config
