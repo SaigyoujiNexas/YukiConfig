@@ -1,0 +1,75 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=10
+" easymotion 需要早于leader key设置
+Plug 'easymotion/vim-easymotion'
+set easymotion
+let mapleader = " "
+" Do incremental searching.
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set relativenumber
+set notimeout
+set showmode
+set showcmd
+set visualbell
+"---------------plugin setting start------------------
+set peekaboo
+set which-key
+let g:WhichKeyDesc_language_tools = "<leader>l language-tools"
+let g:WhichKey_FontSize = 16
+
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+"---------------plugin setting end ------------------
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+:map <leader>ld <Action>(GotoDeclaration)
+:map <leader>lf <Action>(ReformatCode)
+:map <leader>lr <Action>(RenameElement)
+:map <leader>/ <Action>(FindInPath)
+:map <leader><space> <Action>(GotoFile)
+:map ]d <Action>(GotoNextError)
+:map [d <Action>(GotoPreviousError)
+:map ]b :tabnext<CR>
+:map [b :tabprevious<CR>
+:map <leader>e :NERDTreeToggle<CR>
+:map <C-/> <Action>(ActivateTerminalToolWindow)
+:imap <C-/> <Action>(ActivateTerminalToolWindow)
+
+:map gi <Action>(JumpToLastChange)
+:map gI <Action>(GotoImplementation)
+:map gy <Action>(GotoTypeDeclaration)
+:map gr <Action>(FindUsages)
+:map <leader>mt <Action>(ToggleBookmark)
+:map <leader>ml <Action>(ActivateBookmarksToolWindow)
+:map qq <Action>(HideActiveWindow)
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
